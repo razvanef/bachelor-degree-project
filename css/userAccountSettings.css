@@ -1,0 +1,17 @@
+md-dialog {
+    width: 80%;
+    min-width: 460px;
+}
+.dialog-body {
+    padding: 50px;
+}
+.datepicker-container {
+        padding: 2px;
+    margin: 12px 0;
+    vertical-align: middle;
+        padding-right: 15px;
+    padding-left: 15px;
+}
+.datepicker-container .md-datepicker-input-container {
+    width: 80%;
+}

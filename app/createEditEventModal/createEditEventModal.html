@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="css/band-page.css">
+
+<div class="book-now col-md-12">
+    <form id="book-form">
+        <md-input-container class="md-icon-float md-block col-md-6 col-xs-12">
+            <!-- Use floating label instead of placeholder -->
+            <label>Name</label>
+            <md-icon md-svg-src="images/face_black.svg" class="name"></md-icon>
+            <input ng-model="event.user_name" type="text">
+        </md-input-container>
+
+        <md-input-container md-no-float="" class="md-block col-md-6 col-xs-12">
+            <label>Phone number</label>
+            <md-icon md-svg-src="images/phone_black.svg"></md-icon>
+            <input ng-model="event.phone" type="text">
+        </md-input-container>
+
+        <md-input-container class="md-block col-md-6 col-xs-12">
+            <!-- Use floating placeholder instead of label -->
+            <md-icon md-svg-src="images/email_black.svg"></md-icon>
+            <input ng-model="event.email" type="email" placeholder="Email (required)" ng-required="true">
+        </md-input-container>
+
+        <md-input-container class="md-block col-md-6 col-xs-12">
+            <!-- Use floating placeholder instead of label -->
+            <md-icon md-svg-src="images/coins.svg" class="price"></md-icon>
+            <input ng-model="event.price" type="number" placeholder="Price">
+        </md-input-container>
+
+        <md-datepicker class="col-md-6" id="event-datepicker" ng-model="event.event_date" md-placeholder="Enter date">
+        </md-datepicker>
+
+        <md-input-container class="col-md-6 col-xs-12">
+            <label>Event Type</label>
+            <md-icon md-svg-src="images/tag_black.svg"></md-icon>
+            <md-select ng-model="event.event_type">
+                <md-option ng-repeat="eventType in eventTypes" value="{{eventType}}">
+                    {{eventType}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container class="col-md-12 col-xs-12" id="book-map">
+            <label>Location</label>
+            <md-icon md-svg-src="images/location_on_black.svg"></md-icon>
+            <input id="location-picker-input" type="text" autocomplete="off"/>
+            <google-map-locator id="location-pick" class="google-map"
+                                location = "{{location}}"
+                                radius="10"
+                                on-location-initialize="onLocationInitialize(location)"
+                                on-location-change="onLocationChange(location)"
+                                on-map-loaded="onMapLoaded(map)">
+            </google-map-locator>
+        </md-input-container>
+        <button class="event-modal-button btn btn-success" type="button" ng-click="saveEvent()">Save</button>
+        <button class="event-modal-button btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+
+    </form>
+</div>

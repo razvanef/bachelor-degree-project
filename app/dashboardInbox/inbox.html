@@ -1,0 +1,15 @@
+<div ng-controller="inboxDashboardController">
+    <md-content>
+        <md-list class="inbox-list">
+            <md-list-item class="md-3-line" ng-repeat="item in groups">
+                <img ng-src="{{item.face ? item.face : 'images/avatar.jpg'}}" class="face" alt="{{item.booking.user_name}}">
+                <div class="md-list-item-text">
+                    <h3 ng-class="{'not-read': !item.readed}" ng-click="readConversation(item.id)" class="message-preview-subject">{{item.what}}</h3>
+                    <h4 ng-click="readConversation(item.id)">{{item.booking.user_name}}</h4>
+                    <p>{{item.lines[item.lines.length - 1].text| limitTo: 100}}...</p>
+                </div>
+                <md-divider md-inset ng-if="!$last"></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>

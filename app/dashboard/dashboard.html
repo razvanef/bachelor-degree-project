@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    </head>
+    <body ng-controller="dashboardAppController">
+        <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar">
+                    <li class="sidebar-main">
+                        <a ng-click="toggleSidebar()">
+                            Dashboard
+                            <span class="menu-icon glyphicon glyphicon-transfer"></span>
+                        </a>
+                    </li>
+                    <li class="sidebar-title"><span>NAVIGATION</span></li>
+                    <li class="sidebar-list">
+                        <a ng-click="navigateDashboard('')">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+                    </li>
+                    <li class="sidebar-list">
+                        <a ng-click="navigateDashboard('inbox')">Inbox <span class="menu-icon fa fa-inbox"></span></a>
+                    </li>
+                    <li class="sidebar-list">
+                        <a ng-click="navigateDashboard('events')">Events <span class="menu-icon fa fa-calendar-o"></span></a>
+                    </li>
+                    <li class="sidebar-list">
+                        <a ng-click="navigateDashboard('calendar')">Calendar <span class="menu-icon fa fa-calendar"></span></a>
+                    </li>
+                    <li class="sidebar-list">
+                        <a ng-click="navigateDashboard('reports')">Reports <span class="menu-icon fa fa-area-chart"></span></a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+<!--                    <div class="col-xs-4">
+                        <a href="https://github.com/rdash/rdash-angular" target="_blank">
+                            Github
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
+                            About
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="#">
+                            Support
+                        </a>
+                    </div>-->
+                </div>
+            </div>
+            <!-- End Sidebar -->
+
+            <div id="content-wrapper">
+                <div class="page-content">
+
+                    <!-- Header Bar -->
+                    <div class="row header">
+                        <div class="col-xs-12">
+                            <div class="user pull-right">
+                                <div class="item dropdown" uib-dropdown>
+                                    <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                                        <img src="images/avatar.jpg">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-header">
+                                            {{user}}
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li class="link">
+                                            <a href="#">
+                                                Profile
+                                            </a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="#">
+                                                Menu Item
+                                            </a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="#">
+                                                Menu Item
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li class="link">
+                                            <a href="#" ng-click="logOutOptions()">
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="item dropdown" uib-dropdown>
+                                    <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                                        <i class="fa fa-bell-o"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li class="dropdown-header">
+                                            Notifications
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">Server Down!</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="meta">
+                                <div class="page">
+                                    {{page | capitalize}}
+                                </div>
+                                <div class="breadcrumb-links">
+                                    Home / Dashboard{{page!=='Dashboard' ? ' / ' + page : '' | capitalize}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Header Bar -->
+
+                    <!-- Main Content -->
+                    <div ng-switch on="page">
+
+                        <div ng-switch-default><ng-include src="'app/dashboardIndex/index.html'"></ng-include></div>
+                        <div ng-switch-when="inbox"><ng-include src="'app/dashboardInbox/inbox.html'"></ng-include></div>
+                        <div ng-switch-when="inbox / Conversation"><ng-include src="'app/dashboardInboxConversation/conversation.html'"></ng-include></div>
+                        <div ng-switch-when="events"><ng-include src="'app/dashboardEvents/dashboardEvents.html'"></ng-include></div>
+                        <div ng-switch-when="calendar"><ng-include src="'app/dashboardCalendar/calendar.html'"></ng-include></div>
+                        <div ng-switch-when="reports"><ng-include src="'app/dashboardReports/dashboardReports.html'"></ng-include></div>
+
+                    </div>
+
+
+                </div><!-- End Page Content -->
+            </div><!-- End Content Wrapper -->
+        </div><!-- End Page Wrapper -->
+        
+        <!-- configuration file  -->
+        <script src="main/app.js"></script>
+
+        <!-- Directives -->
+        <script src="main/directives.js"></script>
+
+        <!-- services -->
+        <script src="app/login/services.js"></script>
+
+        <!-- controllers -->
+        <script src="app/inbox/controller.js"></script>
+
+        <!-- filters -->
+        <script src="main/filters.js"></script>   
+
+    
+    </body>
+</html>

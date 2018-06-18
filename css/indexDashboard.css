@@ -1,0 +1,21 @@
+
+.edit-container {
+    margin: 20px 0;
+}
+.add-video-button {
+    float: left;
+    margin: 18px 0;
+    width: 20%;
+}
+.add-video-input {
+    float: left;
+    width: 80%;
+}
+.add-video-button button {
+    margin: 0 auto;
+    display: block;
+}
+#save-changes {
+    display: block;
+    margin: 0 auto 20px;
+}

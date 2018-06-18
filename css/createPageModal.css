@@ -1,0 +1,197 @@
+.modal-dialog {
+    width: 90%;
+    max-width: 1024px;
+}
+.modal-body {
+    display: block;
+    overflow: hidden;
+}
+
+.prop .rec {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto 30px auto;
+    visibility: hidden; }
+.prop h2 {
+    padding: 15px;
+    visibility: hidden; }
+.prop li {
+    font-family: "Montserrat", sans-serif;
+    list-style: none;
+    color: #000;
+    padding: 5px;
+    margin: 10px 0;
+    height: 31.53px;
+    border-bottom: 1px dashed #a493c6;
+}
+
+.price {
+    background: #fffff3;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.5); }
+.price h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px;
+    color: #566270; }
+.price svg {
+    display: block;
+    margin: 0 auto 30px auto;
+    width: 100px;
+    height: 100px;
+    fill: #a493c6; }
+.price li:nth-child(even) {
+    background: #a493c6; }
+.price li:nth-child(odd) {
+    background: #e0e3da; }
+.price li {
+    list-style: none;
+    text-align: center;
+    padding: 3px;
+    margin: 10px 0; }
+.price span {
+    display: block;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2em;
+    color: #566270; }
+.price span strong {
+    font-size: 2.2em; }
+.price a {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2em;
+    padding: 10px;
+    background: #a493c6;
+    color: #fffff3;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease-in-out; }
+.price a:hover {
+    background: #566270; }
+
+.visible-xs {
+    display: none; }
+
+
+.ck-button {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border: 1px solid rgba(158,158,158,.2);
+}
+.ck-button label, .ck-button label span {
+    cursor: pointer;
+}
+.ck-button label input {
+    position:absolute;
+    top:-20px;
+}
+
+.ck-button-checked {
+    border-radius: 100%;
+}
+.required-icon {
+    color: #c9302c;
+    font-size: 10px;
+}
+
+.cover-input-dragDrop, .logo-input-dragDrop {
+    display: block;
+    margin: 0 auto 25px auto;
+    padding: 25px;
+    color: #8d9499;
+    color: #97A1A8;
+    background: #fff;
+    border: 2px dashed #C8CBCE;
+    text-align: center;
+    -webkit-transition: box-shadow 0.3s, border-color 0.3s;
+    -moz-transition: box-shadow 0.3s, border-color 0.3s;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.cover-input-dragDrop {
+    /*width: 100%;*/
+}
+.cover-input-dragDrop .cover-input-icon, .logo-input-dragDrop .logo-input-icon {
+    font-size: 48px;
+    margin-top: -10px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.btn-custom.blue-light {
+    color: #5BC5FF;
+    border: 1px solid #5BC5FF;
+    padding: 10px 20px;
+}
+.btn-custom.blue-light:hover {
+    color: #000;
+}
+.cover-input-inner img {
+    width: 100%;
+    margin-top: 15px;
+}
+.member-item md-input-container {
+    margin: 0;
+}
+.member-item {
+    float: left;
+    width: 100%;
+}
+.add-band-members-list {
+    padding-bottom: 30px;
+}
+#add-member-button {
+    color: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+#add-member-button:hover {
+    color: #337ab7!important;
+}
+
+.next-btn, .back-btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #38cf9d;
+  padding: 7px 25px 7px 25px;
+  text-decoration: none;
+}
+
+.next-btn:hover, .back-btn:hover {
+  background: #16c98d;
+  background-image: -webkit-linear-gradient(top, #16c98d, #42d4a3);
+  background-image: -moz-linear-gradient(top, #16c98d, #42d4a3);
+  background-image: -ms-linear-gradient(top, #16c98d, #42d4a3);
+  background-image: -o-linear-gradient(top, #16c98d, #42d4a3);
+  background-image: linear-gradient(to bottom, #16c98d, #42d4a3);
+  text-decoration: none;
+}
+.logo-dragdropbox {
+    display: block;
+    overflow: auto;
+}
+
+@media (max-width: 74.9em) {
+    .table {
+        margin: 100px 0; }
+
+    .visible-xs {
+        display: none;
+        margin: 5px 0;
+        font-family: "Montserrat", sans-serif; } }
+@media (max-width: 61.9em) {
+    .prop {
+        display: none; }
+
+    .visible-xs {
+        display: block; } }

@@ -1,0 +1,55 @@
+http://www.edureka.co/blog/animating-angular-apps-with-nganimate/
+
+http://getmdl.io/components/index.html
+https://material.angularjs.org/latest/
+
+http://jsfiddle.net/manishpatil/2fahpk7s/ ----> rating star
+http://angular-ui.github.io/
+http://codepen.io/ettrics/pen/VvxmPV ------> Photo gallery
+http://codepen.io/neel2292/pen/KVWbzz ------> create event calendar
+
+http://docs.spring.io/spring/docs/3.0.0.M3/spring-framework-reference/html/ch18s02.html
+http://www.vogella.com/tutorials/REST/article.html
+http://crunchify.com/how-to-build-restful-service-with-java-using-jax-rs-and-jersey/
+http://help.arcgis.com/en/arcgisserver/10.0/apis/rest/config.html
+
+https://code.angularjs.org/1.5.0/
+
+http://stackoverflow.com/questions/22544625/javascript-convert-youtube-vimeo-urls-into-embed-versions-for-use-on-a-forum
+
+https://github.com/philipehsing/jQuery.Simple-Event-Calendar/blob/master/simplecalendar.js
+http://codepen.io/drehimself/pen/KdXwxR ------------> chat layout
+https://angular-material-calendar.bradb.net/
+http://antoniodinardo.com/TEST/calendar/
+http://codepen.io/RYJASM/pen/zvzqOq ----------> calendar/datepicker
+http://www.materialup.com/posts/css3-jquery-material-design-calendar
+
+https://www.codementor.io/angularjs/tutorial/angularjs-calendar-directives-less-cess-moment-font-awesome
+
+
+
+https://developers.google.com/analytics/devguides/config/mgmt/v3/#next
+
+
+http://www.site.uplabs.com/posts/easy-user-registration-interaction-desktop-app
+http://www.site.uplabs.com/posts/daily-ui-001-sign-up-modal
+http://www.site.uplabs.com/posts/pricing-table-snippet
+http://www.site.uplabs.com/posts/boarding-pass-interface-resources
+http://www.site.uplabs.com/posts/responsive-pricing-table-css3
+http://www.site.uplabs.com/posts/sign-in-sign-up-form-concept-interface
+http://ertekinn.com/loginsignup/
+
+
+http://www.angularcode.com/user-authentication-using-angularjs-php-mysql/
+http://www.angularcode.com/demo-of-a-simple-crud-restful-php-service-used-with-angularjs-and-mysql/
+https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/
+
+
+http://www.angularcode.com/user-authentication-using-angularjs-php-mysql/
+
+https://codepen.io/whusterj/pen/ijFgA
+
+http://stackoverflow.com/questions/24035090/run-cron-job-on-php-script-on-localhost-in-windows
+
+http://www.tutorialspoint.com/angularjs/angularjs_chart_application.htm
+https://github.com/nervgh/angular-file-upload

@@ -1,0 +1,19 @@
+<div ng-controller="eventsDashboardController">
+    <div ng-repeat="event in events" class="demo-card-event mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+            <h4>
+                Featured event:<br />
+                {{event.event_date| myDateFormat}}<br />
+                {{event.event_type| capitalize}}<br />
+                {{event.user_name| capitalize}}
+            </h4>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a ng-click="addToCalendar(event.id)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Add to Calendar
+            </a>
+            <div class="mdl-layout-spacer"></div>
+            <i ng-click="open(event.latitude, event.longitude)" class="material-icons">pin_drop</i>
+        </div>
+    </div>
+</div>

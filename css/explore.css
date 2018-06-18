@@ -1,0 +1,148 @@
+.band-card .mdl-button {
+    text-transform: lowercase;
+    color: #000;
+}
+.demo-card-square.mdl-card {
+    height: 410px;
+    margin-bottom: 10px;
+}
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    background-image:url('../images/dog.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.band-tags-preview {
+    display: inline-block;
+}
+.tag-band-card {
+    background: #D6D6D6;
+    border-radius: 25px;
+    margin: 0 5px;
+    height: 27px;
+    line-height: 27px;
+}
+.band-card-infos, .tag-band-card {
+    font-size: 12px;
+}
+#search-form {
+    text-align: center;
+}
+
+/*
+animation:*/
+
+.slideDown.ng-hide {
+    height:0;
+    transition:height 0.35s ease;
+    overflow:hidden;
+    position:relative;
+}
+
+.slideDown {
+    transition:height 0.35s ease;
+    overflow:hidden;
+    position:relative;
+    /*z-index: -1;*/
+}
+
+.slideDown.ng-hide-remove,
+.slideDown.ng-hide-add {
+    /* remember, the .hg-hide class is added to element
+    when the active class is added causing it to appear
+    as hidden. Therefore set the styling to display=block
+    so that the hide animation is visible */
+    display:block!important;
+}
+
+
+.slideDown.ng-hide-add {
+    animation-name: hide;
+    -webkit-animation-name: hide;  
+
+    animation-duration: .5s; 
+    -webkit-animation-duration: .5s;
+
+    animation-timing-function: ease-in;  
+    -webkit-animation-timing-function: ease-in;  
+}
+
+.slideDown.ng-hide-remove {
+    animation-name: show;
+    -webkit-animation-name: show;  
+
+    animation-duration: .5s; 
+    -webkit-animation-duration: .5s;
+
+    animation-timing-function: ease-out;  
+    -webkit-animation-timing-function: ease-out;  
+}
+
+.expandcollapse-item {
+    margin-bottom: 30px;
+}
+.filters-button {
+    border: 1px solid #aaa;
+    margin: 0 auto;
+    width: 140px;
+    height: 60px;
+    cursor: pointer;
+    margin-bottom: -1px;
+    text-align: center;
+}
+.filters-button p {
+    display: inline-block;
+    line-height: 60px;
+    font-size: 20px;
+}
+.filters-button i {
+    vertical-align: middle;
+    margin-top: -4px;
+}
+.filters .expand-collapse-content {
+    width: 100%;
+    max-width: 1024px;
+    border: 1px solid #aaa;
+    margin: 0 auto;
+    padding: 25px;
+}
+.filters .expandcollapse-heading-expanded {
+    border-bottom: #fff 1px solid;
+}
+
+
+
+.tabsdemoDynamicHeight md-content {
+    background-color: transparent !important; }
+.tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+    background: white; }
+.tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+
+
+.apply-button {
+    width: 45px!important;
+    line-height: 62px;
+    height: 45px!important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.tab-container {
+    position: relative;
+}
+md-tabs-content-wrapper {
+    margin-top: 30px;
+}
+
+#tags-list {
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 37px;
+    white-space: nowrap;
+}

@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/explore.css">
+    </head>
+    <body ng-controller="exploreController">
+        <div>
+
+            <!-- Expandable Textfield -->
+            <form id="search-form" ng-submit="filterBands()">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable search-band-button">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input ng-model="filter.keyWord" class="mdl-textfield__input" type="text" id="sample6">
+                        <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                    </div>
+                </div>
+            </form>
+
+            <div class="expandcollapse-item filters">
+                <div class="filters-button" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                    <p>Filters</p>
+                    <i ng-if="active" class="material-icons">keyboard_arrow_down</i>
+                    <i ng-if="!active" class="material-icons">close</i>
+                </div>
+
+                <div class="slideDown" ng-hide="active">
+                    <div class="expand-collapse-content">
+                        <div class="tab-container">
+                            <md-tabs md-selected="selectedTab">
+                                <md-tab label="Type">
+                                    <div class="tab-content">
+                                        <md-button ng-click="filter.bandType = 'band'" class="md-raised" ng-class="{'md-primary': filter.bandType === 'band'}">Band</md-button>
+                                        <md-button ng-click="filter.bandType = 'dj'" class="md-raised" ng-class="{'md-primary': filter.bandType === 'dj'}">DJ</md-button>
+                                        <md-button ng-click="filter.bandType = 'singer'" class="md-raised" ng-class="{'md-primary': filter.bandType === 'singer'}">Singer</md-button>
+                                        <md-button ng-click="filter.bandType = 'musician'" class="md-raised" ng-class="{'md-primary': filter.bandType === 'musician'}">Musician</md-button>
+                                    </div>
+                                </md-tab>
+                                <md-tab label="Price">
+                                    Min Price <input type="number" ng-model="rangeSlider.minValue"/>
+                                    Max Price: <input type="number" ng-model="rangeSlider.maxValue"/><br/>
+                                    <rzslider
+                                        data-rz-slider-model="rangeSlider.minValue"
+                                        data-rz-slider-high="rangeSlider.maxValue"
+                                        data-rz-slider-options="rangeSlider.options"
+                                        ></rzslider>
+                                </md-tab>
+                                <md-tab label="Location">
+                                    <!--<p class="tab-content">Tab Three content</p>-->
+                                    <md-autocomplete md-selected-item="filter.location" md-search-text-change="searchTextChange(searchText)" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)" md-item-text="item.display" md-min-length="0" placeholder="Select your area location?">
+                                        <md-item-template>
+                                            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                        </md-item-template>
+                                        <md-not-found>
+                                            No states matching "{{searchText}}" were found.
+                                            <a ng-click="newState(searchText)">Create a new one!</a>
+                                        </md-not-found>
+                                    </md-autocomplete>
+                                </md-tab>
+                            </md-tabs>      
+                            <button class="md-fab md-button md-ink-ripple apply-button" ng-click="filterBands()" type="button" aria-label="Apply Filters">
+                                <i class="material-icons">done</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+
+            <ul>
+                <li ng-repeat="band in bands" class=" band-card col-md-3 col-sm-6 col-xs-12 demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand" ng-style="{'background-image' : 'url('+band.cover+')' }">
+                        <a href="#/{{band.url}}" class="mdl-card__title-text">
+                            {{band.name}}
+                        </a>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div star-rating read-only="true" rating="band.rating" mouse-hover="mouseHoverReadOnly(param)" mouse-leave="mouseLeaveReadOnly(param)"></div>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-ripple-effect band-card-infos">
+                            {{band.pageType}}
+                        </a>
+                        <a class="mdl-button mdl-button--colored mdl-js-ripple-effect band-card-infos">
+                            <i class="material-icons">pin_drop</i>{{band.location}}
+                        </a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect band-card-infos">
+                            from {{band.price}}<i class="fa fa-eur"></i>
+                        </a>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <ul id='tags-list' class="scrollbar">
+                            <li class="band-tags-preview" ng-repeat="tag in band.tags| limitTo: 4">
+                                <a class="tag-band-card mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                    {{tag['tag_title']}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a href="#/{{band.url}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            View More
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </body>
+</html>

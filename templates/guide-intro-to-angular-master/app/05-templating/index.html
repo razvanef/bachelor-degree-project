@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS Email App</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div ng-controller="TestCtrl">
+      <!-- JavaScript inside expression -->
+      <h1>{{ [ firstName, lastName ].join(" ") }}</h1>
+      <!-- currency filter applied to a multiplication of 2 numbers -->
+      <div class="total-info">{{ cost * quantity | currency }}</div>
+      <!-- Using a ternary expression inside the expression -->
+      <div class="budget">{{ ( total > budget ) ? "Too Expensive" : "You can buy it!" }}</div>
+    </div>
+
+    <script src="lib/jquery-v1.11.1.js"></script>
+    <script src="lib/angular-v1.2.22.js"></script>
+
+    <script>
+      function TestCtrl($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+        $scope.cost = 1;
+        $scope.quantity = 2;
+        $scope.total = 3;
+        $scope.budget = 4;
+      };
+    </script>
+  </body>
+</html>

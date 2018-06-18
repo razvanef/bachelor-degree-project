@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/landing-page.css">
+    </head>
+    <body ng-controller="homeController">
+        <div id="landing">
+            <video autoplay loop poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid">
+                <source src="images/concert.webm" type="video/webm">
+                <source src="images/concert.mp4" type="video/mp4">
+            </video>
+            <div ng-show="!user.isLogged" class="who-are-you">
+                <div ng-click="openModal('artist')" tooltip-placement="right" uib-tooltip="Are you an artist who want to promote himself?" class="userType tooltip-usertype">I'm an artist</div>
+                <div ng-click="openModal('gig')" tooltip-placement="left" uib-tooltip="Are you looking for a performer for your event?" class="userType">I have a gig</div>
+            </div>
+
+            <div class="who-are-you-modal hidde-modal">
+                <div class="who-are-you-modal-sing-up" ng-if="actionAccount === 'sing-up'">
+                    <div class="form">
+                        <form>
+                            <label for="name" required="required">Full Name</label>
+                            <input ng-model="newAccount.name" id="name" type="text"/>
+                            <label for="email" required="required">Email Address</label>
+                            <input ng-model="newAccount.email" id="email" type="email"/>
+                            <label for="pass">Password</label>
+                            <input ng-model="newAccount.password" id="pass" type="password" required="required"/>
+                            <a ng-click="createAccount(modalType)" class="button">Sign Up</a>
+                        </form>
+                    </div>
+                    <div class="invite">
+                        <h3 ng-show="modalType === 'artist'">Are you an artist who want to promote himself? Come join us!</h3>
+                        <h3 ng-show="modalType === 'gig'">Are you looking for a performer for your event? Come join us!</h3>
+                        <div class="nope" ng-click="account('log-in')">I already have an account. Log in</div>
+                        <div title="close" class="close" ng-click="closeModal()"></div>
+                    </div>
+                </div>
+                <div class="who-are-you-modal-log-in" ng-if="actionAccount === 'log-in'">
+                    <div class="form">
+                        <h3 ng-show="modalType === 'artist'">Are you an artist who want to promote himself? Come join us!</h3>
+                        <h3 ng-show="modalType === 'gig'">Are you looking for a performer for your event? Come join us!</h3>
+                        <div class="nope" ng-click="account('sing-up')">I don't have an account. Sing-up</div>
+                    </div>
+                    <div class="invite">
+                        <form novalidate name="loginForm" ng-model="loginForm" ng-submit="loginForm.$validate(); logInFunction(loginForm, modalType)">
+                            <label for="email" required="required">Email Address</label>
+                            <div class="errorLogIn" ng-show="submitted && loginForm.email.$invalid">
+                                <div ng-if ="loginForm.email.$error.required">
+                                    <small>
+                                        *Email is required.
+                                    </small>
+                                </div>
+                            </div>
+                            <input name="email" type="text" ng-model="login.email" ng-class="{'error': submitted && loginForm.email.$invalid != false }" ng-required="true" />
+
+                            <label for="pass">Password</label>
+                            <div class="errorLogIn" ng-show="submitted && loginForm.password.$invalid">
+                                <div  ng-if="loginForm.password.$error.required">
+                                    <small>
+                                        *Password is required.
+                                    </small>
+                                </div>
+                            </div>
+                            <input name="password" type="password"  ng-model="login.password" ng-class="{'error': submitted && loginForm.password.$invalid != false }" ng-required="true" ng-minlength=4 />
+
+                            <a id="forgot-password-button" href="#">Frogot your password?</a>
+                            <button type="submit" class="button">Log In</button>                       
+
+                            <div class="errorLogIn" ng-show="errorLogin">
+                                <small>
+                                    {{errorLoginMessage}}
+                                </small>
+                            </div>
+
+                        </form>
+                        <div title="close" class="close" ng-click="closeModal()"></div>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div ng-show="user.isLogged" class="landing-title">
+                <h1 class="project-name ng-scope">Hello, {{user.name}}!</h1>
+                <h2 class="project-tagline ng-scope">An Angular.js YouTube video background player directive that stresses simplicity and performance.</h2>
+            </div>-->
+
+        </div>
+
+        <div id="how-to">
+            <ul class="about-content">
+                <li class="col-md-4 col-xs-12">
+                    <img src="images/icon--profile-computer--132w.png" alt="computer screen icon" width="132" height="115" data-pin-nopin="true">
+                    <h3 class="gamma font--22 weight--demi line-height--2em" style="margin-top: 7px; margin-bottom: 4px;">Browse and compare.</h3>
+                    <p class="flush--bottom">Compare fees and availability of performers, bands, and vendors.</p>
+                </li>
+                <li class="col-md-4 col-xs-12">
+                    <img src="images/icon--book-securely--132w.png" alt="secure lock icon" width="132" height="115" data-pin-nopin="true">
+                    <h3 class="gamma font--22 weight--demi line-height--2em" style="margin-top: 7px; margin-bottom: 4px;">Book securely.</h3>
+                    <p class="flush--bottom">Our super simple booking process combines efficiency and peace of mind.</p>
+                </li>
+                <li class="col-md-4 col-xs-12">
+                    <img src="images/icon--calendar-heart--132w.png" alt="calendar and heart icon" width="132" height="115">
+                    <h3 class="gamma font--22 weight--demi line-height--2em" style="margin-top: 7px; margin-bottom: 4px;">Enjoy your event.</h3>
+                    <p class="flush--bottom">The entertainment and services you book will bring your party to life!</p>
+                </li>
+            </ul>
+        </div>
+
+        <a href='#/explore' class="go_to_explore bouncing">
+            <img src="images/explore-white.svg" alt="explore" /> Explore
+        </a>
+    </body>
+</html>

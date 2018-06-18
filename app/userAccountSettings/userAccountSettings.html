@@ -1,0 +1,62 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+    <link rel="stylesheet" type="text/css" href="css/userAccountSettings.css">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{user.name}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons" aria-label="Close dialog">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content class="dialog-body">
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <label>Name</label>
+                <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                <input ng-model="user.name" type="text">
+            </md-input-container>
+
+            <md-input-container md-no-float="" class="md-block col-md-6 col-sm-12">
+                <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                <input ng-model="user.phone" type="text" placeholder="Phone Number">
+            </md-input-container>
+
+            <md-input-container class="md-block col-md-6 col-sm-12">
+                <!-- Use floating placeholder instead of label -->
+                <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+            </md-input-container>
+
+            <md-input-container md-no-float="" class="md-block col-md-4 col-sm-12">
+                <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+                <input ng-model="user.city" type="text" placeholder="City">
+            </md-input-container>
+
+            <md-datepicker class="datepicker-container col-md-4 col-sm-12" ng-model="user.bornDate" md-placeholder="Born Date">
+            </md-datepicker>
+
+            <md-input-container class="md-block col-md-4 col-sm-12" flex-gt-sm>
+                <label>Sex</label>
+                <md-select ng-model="user.sex">
+                    <md-option ng-repeat="sex in sexlist" value="{{sex}}">
+                        {{sex}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer('not useful')">
+                Discard
+            </md-button>
+            <md-button ng-click="postUserInfo();answer('useful')" style="margin-right:20px;">
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

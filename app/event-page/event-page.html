@@ -1,0 +1,79 @@
+<link rel="stylesheet" type="text/css" href="css/event-page.css">
+<div class="boarding-pass">
+    <header>
+        <div class="event-title">
+            {{event['event_type']}}
+        </div>
+        <div class="flight">
+            <button ng-if="user.userId!==band.user_id" ng-click="goToEvent()" class="mdl-button mdl-js-button mdl-button--raised btn-default" ng-class="{'btn-success': isGoing}" ng-disabled="!isLogged">
+                Going
+            </button>
+            <button ng-if="user.userId===band.user_id" ng-click="generateReport()" class="mdl-button mdl-js-button mdl-button--raised btn-default">
+                Report
+            </button>
+        </div>
+    </header>
+    <section class="cities">
+        <div class="city">
+            <small>Live performer</small>
+
+            <strong>{{band.name}}</strong>
+        </div>
+        <div class="card__share">
+            <div class="card__social">  
+                <a class="share-icon facebook" href="http://www.facebook.com/share.php?u={{url}}&title={{event.event_type}}"><span class="fa fa-facebook"></span></a>
+                <a class="share-icon twitter" href="http://twitter.com/intent/tweet?status={{event.event_type}}+{{url}}"><span class="fa fa-twitter"></span></a>
+                <a class="share-icon googleplus" href="https://plus.google.com/share?url={{url}}"><span class="fa fa-google-plus"></span></a>
+            </div>
+
+            <a id="share" class="share-toggle share-icon" href="#"></a>
+        </div>
+    </section>
+    <section class="infos">
+        <div class="places">
+            <div class="box date-box">
+                <small>Date</small>
+                <strong><em>{{event.event_date | myDateFormat}}</em></strong>
+            </div>
+            <div class="box">
+                <small>Entrance</small>
+                <strong><em>{{event.entry==="0" ? 'free' : event.entry}}</em></strong>
+            </div>
+            <div class="box">
+                <small>Guests no.</small>
+                <strong>{{event.guests}}</strong>
+            </div>
+        </div>
+        <div class="times">
+            <!--            <div class="box">
+                            <small>Boarding</small>
+                            <strong>19:50</strong>
+                        </div>
+                        <div class="box">
+                            <small>Departure</small>
+                            <strong>20:20</strong>
+                        </div>
+                        <div class="box">
+                            <small>Duration</small>
+                            <strong>01:10</strong>
+                        </div>
+                        <div class="box">
+                            <small>Arrival</small>
+                            <strong>21:30</strong>
+                        </div>-->
+            <div class="box date-box">
+                <small>Band Bio</small>
+                <span>{{band.bio | limitTo: 50}}</span> <br />
+                <a href="{{'#/'+band.url}}"><small>see more>></small></a>
+            </div>
+        </div>
+    </section>
+    <section class="strap">
+        <div id="somecomponent"></div>  
+<!--        <div class="qrcode">
+            <qrcode data="{{url}}"></qrcode>
+        </div>-->
+    </section>
+</div>
+
+

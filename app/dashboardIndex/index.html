@@ -1,0 +1,246 @@
+<link rel="stylesheet" href="css/createPageModal.css"/>
+<link rel="stylesheet" href="css/indexDashboard.css"/>
+
+<div data-ng-controller="indexDashboardController">
+    <div class="container">
+        <div class="col-md-6 col-xs-12">
+            <div class="edit-container">
+                <form class="edit-container">
+                    <div ng-class="{'ck-button-checked mdl-button--raised': band.pageType === 'band'}" class="ck-button mdl-button mdl-js-button">
+                        <label>
+                            <input type="radio" value="band" ng-model="band.pageType"><span>Band</span>
+                        </label>
+                    </div>
+                    <div ng-class="{'ck-button-checked mdl-button--raised': band.pageType === 'dj'}" class="ck-button mdl-button mdl-js-button">
+                        <label>
+                            <input type="radio" value="dj" ng-model="band.pageType"><span>DJ</span>
+                        </label>
+                    </div>
+                    <div ng-class="{'ck-button-checked mdl-button--raised': band.pageType === 'singer'}" class="ck-button mdl-button mdl-js-button">
+                        <label>
+                            <input type="radio" value="singer" ng-model="band.pageType"><span>Singer</span>
+                        </label>
+                    </div>
+                    <div ng-class="{'ck-button-checked mdl-button--raised': band.pageType === 'musician'}" class="ck-button mdl-button mdl-js-button">
+                        <label>
+                            <input type="radio" value="musician" ng-model="band.pageType"><span>Musician</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="edit-container">
+                <md-input-container class="md-block">
+                    <label><i class="required-icon glyphicon glyphicon-asterisk"></i>Name</label>
+                    <input required="" md-no-asterisk="" name="name" ng-model="band.name">
+                    <div ng-messages="projectForm.name.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label><i class="required-icon glyphicon glyphicon-asterisk"></i>Nickname (it will be use in URL)</label>
+                    <input disabled md-no-asterisk="" name="bio" ng-model="band.url">
+                    <div ng-messages="projectForm.bio.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-show="unique">The username has to be unique.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Bio</label>
+                    <input md-no-asterisk="" name="description" ng-model="band.bio">
+                </md-input-container>
+                <h5>Choose Categories</h5>
+                <md-chips ng-model="band.tags"></md-chips>
+            </div>
+            <div class="edit-container col-md-12">
+                <div class="cover-dragdropbox">
+                    <input fileread="band.cover" file-name="band.coverfileName" name="coverToUpload" type="file" id="cover-upload-input" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
+                    <div class="cover-input-dragDrop col-md-6 col-sm-12" ng-click="openUploader()">
+                        <div class="cover-input-inner" file-dropzone="[image/png, image/jpeg, image/gif]"
+                             file="band.cover" file-name="band.coverfileName" data-max-file-size="3">
+                            <div class="cover-input-icon">
+                                <i class="icon-jfi-cloud-up-o"></i>
+                            </div>
+                            <div class="cover-input-text">
+                                <h3>Drag&amp;Drop files here</h3>
+                                <span style="display:inline-block; margin: 15px 0">or</span>
+                            </div>
+                            <a class="btn-custom blue-light">{{band.coverfileName ? band.coverfileName : 'Browse Files'}}</a>
+
+                        </div>
+                    </div>
+                    <img class="col-md-6 col-sm-12" ng-src={{coverimg}} />
+                </div>
+            </div>
+            <div class="edit-container">
+                <h5>Upload the logo (it should be transparent-background)</h5>
+                <div class="logo-dragdropbox">
+                    <input fileread="band.logo" file-name="band.logofileName" name="logoToUpload" type="file" id="logo-upload-input" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
+                    <div class="logo-input-dragDrop col-md-6 col-sm-12" ng-click="openUploaderLogo()">
+                        <div class="logo-input-inner" file-dropzone="[image/png, image/jpeg, image/gif]"
+                             file="band.logo" file-name="band.logofileName" data-max-file-size="3">
+                            <div class="logo-input-icon">
+                                <i class="icon-jfi-cloud-up-o"></i>
+                            </div>
+                            <div class="logo-input-text">
+                                <h3>Drag&amp;Drop files here</h3>
+                                <span style="display:inline-block; margin: 15px 0">or</span>
+                            </div>
+                            <a class="btn-custom blue-light">{{band.logofileName ? band.logofileName : 'Browse Files'}}</a>
+
+                        </div>
+                    </div>
+                    <img class="col-md-6 col-sm-12" ng-src={{logoimg}} />
+                </div>
+                <div class="edit-container add-band-members-list col-md-12">
+                    <h5>Add members</h5>
+                    <div class="member-item" ng-repeat="member in band.members">
+                        <md-input-container class="md-block col-md-6 col-xs-12">
+                            <label><i class="required-icon glyphicon glyphicon-asterisk"></i>Name</label>
+                            <input required="" md-no-asterisk="" name="membarName" ng-model="member.name">
+                            <div ng-messages="projectForm.membarName.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block col-md-6 col-xs-12">
+                            <label><i class="required-icon glyphicon glyphicon-asterisk"></i>Role</label>
+                            <input required="" md-no-asterisk="" name="mamberRole" ng-model="member.role">
+                            <div ng-messages="projectForm.mamberRole.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <a id="add-member-button" ng-click="appendMember()">+add member</a>
+                </div>
+                <div class="edit-container col-md-12">
+                    <h5>Starting Price</h5>
+                    <md-input-container class="md-block col-md-6 col-xs-12">
+                        <label><i class="required-icon glyphicon glyphicon-asterisk"></i>Price(USD)</label>
+                        <input name="price" ng-model="band.price">
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+
+            <!--                <div class="col-md-3">
+            
+                                <h3>Select files</h3>
+            
+                                <div ng-show="uploader.isHTML5">
+                                     3. nv-file-over uploader="link" over-class="className" 
+                                    <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
+                                        Base drop zone
+                                    </div>
+            
+                                     Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" 
+                                    <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
+                                        <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well my-drop-zone">
+                                            Another drop zone with its own settings
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                 Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" 
+                                Multiple
+                                <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+            
+                                Single
+                                <input type="file" nv-file-select="" uploader="uploader" />
+                            </div>-->
+
+            <div class="col-md-12" style="margin-bottom: 40px">
+
+                <h3>Photo gallery</h3>
+                <p>Queue length: {{ uploader.queue.length}}</p>
+                <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Name</th>
+                            <th ng-show="uploader.isHTML5 && item.file.size">Size</th>
+                            <th ng-show="uploader.isHTML5 && item.file.size">Progress</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in uploader.queue">
+                            <td><strong>{{ item.file.name}}</strong></td>
+                            <td ng-show="uploader.isHTML5 && item.file.size" nowrap>{{ item.file.size / 1024 / 1024|number:2 }} MB</td>
+                            <td ng-show="uploader.isHTML5 && item.file.size">
+                                <div class="progress" style="margin-bottom: 0;">
+                                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <span ng-show="item.isSuccess || !item.file.size"><i class="glyphicon glyphicon-ok"></i></span>
+                                <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                            </td>
+                            <td nowrap>
+                                <button ng-show="item.file.size" type="button" class="btn btn-success btn-xs" ng-click="item.upload(); addInGallery()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                    <span class="glyphicon glyphicon-upload"></span> Upload
+                                </button>
+                                <button ng-show="item.file.size" type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove(); deletePhoto(item.file.name, $index)">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <div>
+                        Queue progress:
+                        <div class="progress" style="">
+                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll(); addInGallery()" ng-disabled="!uploader.getNotUploadedItems().length">
+                        <span class="glyphicon glyphicon-upload"></span> Upload all
+                    </button>
+                    <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                    </button>
+                    <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                        <span class="glyphicon glyphicon-trash"></span> Remove all
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <h3>Video gallery</h3>
+                <div id="video-prev">
+                    {{selectedVideo ? '' : "No video to show!"}}
+                    <iframe ng-show="selectedVideo" class="embed-responsive-item" ng-src="{{trustSrc(selectedVideo)}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <br />
+                <ul id="video-links">
+                    <li ng-click="selectVideo(video.url)" ng-repeat="video in band.videos" class="video-link">{{$index + 1 + ' - ' + video.url}}</li>
+                </ul>
+                <!-- Mini FAB button -->
+                <div class="add-video-button">
+                    <button ng-click="addVideo(newVideo)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                        <i class="material-icons">add</i>
+                    </button>
+                </div>
+                <md-input-container class="add-video-input md-block">
+                    <label>YouTube url</label>
+                    <input required="" md-no-asterisk="" name="name" ng-model="newVideo">
+                </md-input-container>
+
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <button id="save-changes" ng-click="editBandPage()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                Save changes
+            </button>
+        </div>
+
+    </div>
+</div>

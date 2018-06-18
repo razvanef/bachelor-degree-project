@@ -1,0 +1,544 @@
+.section {
+    width: 100%;
+    padding: 50px 80px;
+    display: block;
+    overflow: hidden;
+}
+.section-title {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 1px rgb(224,224,224);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+#band-cover {
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+.band-logo {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 300px;
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.band-logo img {
+    width: 100%;
+}
+.band-social {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+}
+.band-social-icon {
+    width: 35px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+.band-social-icon img {
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 35px;
+}
+#band-gallery {
+    padding: 0;
+    height: 250px;
+}
+.slick-slider {
+    margin-bottom: 0; 
+}
+#myCarousel a {
+    display: block;
+    height: 250px;
+    float: left;
+}
+#myCarousel a img {
+    height: 100%;
+    margin: 0 5px;
+}
+#band-video-gallery {
+    background-color: #131313;
+    padding: 0 80px;
+}
+.video-playlist .scrollbar {
+    height: 100%;
+    overflow-x: auto;
+}
+.video-playlist img {
+    width: 100%;
+}
+#band-services .md-chips {
+    max-width: 1024px;
+    margin: 0 auto;
+    box-shadow: none;
+}
+.price span {
+    display: block;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2em;
+    color: #566270; }
+.price span strong {
+    font-size: 2.2em; }
+
+
+
+.md-chip {
+    cursor: default;
+    border-radius: 16px;
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    margin: 8px 8px 0 0;
+    padding: 0 12px;
+    float: left;
+    box-sizing: border-box;
+    max-width: 100%;
+    position: relative;
+    background: rgb(224,224,224);
+    color: rgb(66,66,66);
+}
+
+
+.calendar-container {
+    height: 538px;
+    left: 50%;
+    margin: -255px 0 0 -245px;
+    position: absolute;
+    top: 45%;
+    width: 510px;
+}
+
+.calendar {
+    text-align: center;
+}
+
+.calendar header {
+    position: relative;
+}
+
+.calendar h2 {
+    text-transform: uppercase;
+}
+
+.calendar thead {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.calendar tbody {
+    color: #7c8a95;
+}
+
+.calendar tbody td:hover {
+    border: 2px solid #c0392b;
+}
+
+.calendar tbody td.active {
+    border: 2px solid #c0392b;
+}
+
+.calendar td {
+    border: 2px solid transparent;
+    border-radius: 50%;
+    height: 72px;
+    line-height: 64px;
+    text-align: center;
+    display: inline-block;
+    width: 79px;
+    padding: 1px;
+    float: left;
+}
+
+.current-day {
+    background: #c0392b;
+    color: #f9f9f9;
+}
+
+.selected-day {
+    background: #ED8A80;
+    color: #fff;
+}
+
+.event {
+    cursor: pointer;
+    position: relative;
+}
+
+.event:after {
+    background: #c0392b;
+    border-radius: 50%;
+    bottom: 8px;
+    display: block;
+    content: '';
+    height: 8px;
+    left: 50%;
+    margin: -4px 0 0 -4px;
+    position: absolute;
+    width: 8px;
+}
+
+.event.current-day:after {
+    background: #f9f9f9;
+}
+
+.btn-prev,
+.btn-next {
+    border: 2px solid #cbd1d2;
+    border-radius: 50%;
+    color: #cbd1d2;
+    height: 32px;
+    font-size: 22px;
+    line-height: 28px;
+    margin: -16px;
+    position: absolute;
+    top: 50%;
+    width: 32px;
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+    background: #cbd1d2;
+    color: #f9f9f9;
+}
+
+.btn-prev {
+    left: 30px;
+}
+
+.btn-next {
+    right: 35px;
+}
+
+.list {
+    margin-top: 20px;
+}
+
+.close {
+    color: #A4AAAB;
+    margin-top: -15px;
+    margin-right: 10px;
+    float: right;
+}
+
+.day-event {
+    background-color: #F2F2F2 ;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 50px;
+    display:none;
+
+}
+
+.day-event p{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.day-event span{
+    font-size: 12px;
+}
+
+.day-event button {
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #c0392b;
+    border: 0;
+    border-bottom: 2px solid #b53224;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -2px #b53224;
+    box-shadow: inset 0 -2px #b53224;
+}
+.calendar table {
+    margin: 0 auto;
+}
+
+#book-form .md-datepicker-button {
+    padding-left: 0;
+    margin-left: 0;
+    width: auto;
+}
+#book-form .md-datepicker-button .md-datepicker-calendar-icon {
+    color: inherit;
+}
+#book-form .md-datepicker-input-container {
+    margin-left: 0;
+    width: calc(100% - 50px);
+}
+#book-form .md-datepicker-input-container .md-datepicker-input {
+    max-width: auto;
+}
+#book-form .md-icon-left {
+    margin: 0;
+}
+#book-form md-datepicker {
+    padding-left: 0;
+}
+.google-map {
+    height: 300px;
+    width: 100%;
+}
+#location-picker-input {
+    margin-bottom: 20px;
+}
+#book-map {
+    margin-top: 20px!important;
+}
+
+#band-review {
+    padding: 50px 15%;
+    background-color: #eee;
+}
+#band-review ul {
+    padding-left: 80px;
+    list-style: none;
+}
+#band-review ul li {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+#band-review ul li:not(:first-child) {
+    margin-top: 20px;
+}
+#band-review ul li header {
+    border-bottom: 1px solid #e5e5e5;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+#band-review ul li header h3.author, #band-review ul li header h3.author * {
+    color: #9a3;
+}
+#band-review ul li header h3 {
+    padding-left: 20px;
+    font-weight: normal;
+    line-height: 40px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+#band-review ul li header h3 a {
+    text-decoration: none;
+    display: inline-block;
+}
+#band-review ul li header h3.author, ul li header h3.author * {
+    color: #9a3;
+}
+.user-review-image {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 4px solid #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: -80px;
+}
+#band-review ul li article {
+    padding: 20px;
+    white-space: pre-line;
+    overflow-x: hidden;
+}
+#band-review .star-rating {
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+.add-review header {
+    padding: 0 80px;
+    position: relative;
+}
+.add-review .user-review-image {
+    left: 0;
+}
+.post-review {
+    position: absolute;
+    right: 20px;
+    width: 30px;
+    top: 40px;
+    cursor: pointer;
+    opacity: .3;
+}
+.post-review:hover {
+    opacity: 1;
+}
+.add-review-button {
+    margin: 0 auto;
+    width: 140px;
+    height: 60px;
+    cursor: pointer;
+    text-align: center;
+}
+.add-review .comment {
+    opacity: 0.3;
+}
+.total-review .star-rating-total img {
+    width: 35px;
+}
+.total-review span {
+    float: left;
+    font-size: 35px;
+    line-height: 45px;
+    margin-right: 12px;
+}
+
+.send-request {
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    font-family: Courier New;
+    color: #9d9d9d;
+    font-size: 20px;
+    background: #E8F4FC;
+    padding: 6px 20px;
+    text-decoration: none;
+    float: right;
+    cursor: pointer;
+}
+
+.send-request:hover {
+    background: #A9D7F6;
+    text-decoration: none;
+}
+.modal-dialog {
+    width: 900px
+}
+.modal-content {
+    display: block;
+    overflow: auto;
+    height: auto!important;
+}
+.event-modal-button {
+    float: right;
+    margin: 0 7px;
+}
+
+@media screen and (max-width: 992px) {
+    .video-playlist {
+        height: 130px!important;
+        width: 100%;
+        padding: 0;
+    }
+    .video-playlist .scrollbar {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+    .video-playlist img {
+        height: 100%;
+        width: auto;
+    }
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    /* STYLES GO HERE */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+    /* STYLES GO HERE */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+    /* STYLES GO HERE */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+    /* STYLES GO HERE */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    /* STYLES GO HERE */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    /* STYLES GO HERE */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+    /* STYLES GO HERE */
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+    /* STYLES GO HERE */
+}
+
+/* iPhone 5 (portrait & landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+    /* STYLES GO HERE */
+}
+
+/* iPhone 5 (landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : landscape) {
+    /* STYLES GO HERE */
+}
+
+/* iPhone 5 (portrait)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : portrait) {
+    /* STYLES GO HERE */
+}
+
+
+
+
+.myCarousel {
+    height: 250px;
+    width: 3000px;
+}
+.myCarousel img {
+    height: 250px;
+}

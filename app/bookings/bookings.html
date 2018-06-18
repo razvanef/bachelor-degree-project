@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/bookings.css">
+    </head>
+    <body>
+    <uib-accordion id="bookings-list" close-others="true">
+        <uib-accordion-group ng-repeat="group in groups" is-open="group.open">
+            <uib-accordion-heading>
+                <i ng-class="{'fa fa-minus-circle':groups[$index].open,'fa fa-plus-circle':!groups[$index].open }"></i> 
+                <!--<img class="booking-band-image" ng-src="{{ group.image}}"/>-->
+                <img class="booking-band-image" src="images/avatar.jpg"/>
+                [{{$index + 1}}] {{group.band}}
+            </uib-accordion-heading>
+            <div class="email__content" ><div class="chat">
+
+
+                    <div class="chat-history">
+                        <ul>
+                            <li class="booking-line message other-message">
+                                <div class="col-md-6 col-xs-12">
+                                    <b>{{group.booking.user_name}}</b>
+                                    <br />
+                                    <span>Event: {{group.booking.event_type}}</span>
+                                    <br />
+                                    <span>Date: {{group.booking.event_date| date: 'dd/MM/yyyy' }}</span>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input hidden="" id="location-picker-input" type="text" autocomplete="off"/>
+                                    <google-map-locator class="location-pick google-map"
+                                                        location = "{{location[$index]}}"
+                                                        radius="10"
+                                                        on-location-initialize="onLocationInitialize(location)"
+                                                        on-map-loaded="onMapLoaded(map)">
+                                    </google-map-locator>
+                                </div>
+                            </li>
+                            <li class="clearfix" ng-repeat="message in group.lines">
+                                <div ng-if="message.sender === user.userId">
+                                    <div class="message-data align-right">
+                                        <span class="message-data-time" >{{message.date| date: 'h:mm:ss a, d MMM yy'}}</span> &nbsp;
+                                    </div>
+                                    <div class="message other-message float-right">
+                                        {{message.text}}
+                                    </div>
+                                </div>
+                                <div ng-if="message.sender !== user.userId">
+                                    <div class="message-data">
+                                        <span class="message-data-name"><i class="fa fa-circle online"></i>{{group.band}}</span>
+                                        <span class="message-data-time">{{message.time}}, {{message.date}}</span>
+                                    </div>
+                                    <div class="message my-message">
+                                        {{message.text}}
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+
+                    </div> <!-- end chat-history -->
+
+                    <div class="chat-message clearfix">
+                        <textarea ng-model="response" name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+
+                        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+                        <i class="fa fa-file-image-o"></i>
+
+                        <button ng-click="sendLine($index, response)">Send</button>
+
+                    </div> <!-- end chat-message -->
+
+                </div> <!-- end chat --></div>
+        </uib-accordion-group>
+    </uib-accordion>
+</body>
+</html>

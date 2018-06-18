@@ -1,0 +1,44 @@
+{
+  "events": [
+    {
+      "id": 100,
+      "name": "MyParty",
+      "host": "Adam",
+      "date": 23-05-2016,
+      "type" : "party",
+      "duration": 3,
+      "latitude": "44.435564",
+      "longitude": "26.096895000000018"
+    },
+    {
+      "id": 110,
+      "name": "So much fun",
+      "host": "Tom",
+      "date": 1-12-2017,
+      "type" : "party",
+      "duration": 3,
+      "latitude": "44.435564",
+      "longitude": "26.096895000000018"
+    },
+    {
+      "id": 104,
+      "name": "Get married",
+      "host": "Martin",
+      "date": 05-04-2017,
+      "type" : "wedding",
+      "duration": 3,
+      "latitude": "44.435564",
+      "longitude": "26.096895000000018"
+    },
+    {
+      "id": 105,
+      "name": "Married",
+      "host": "Johan",
+      "date": 24-05-2016,
+      "type" : "wedding",
+      "duration": 4,
+      "latitude": "44.435564",
+      "longitude": "26.096895000000018"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+<div ng-controller="conversationDashboardController">
+    <div class="email">
+        <div class="conversation-top">
+            <a href="#/dashboard/inbox" class="back-arrow-conversation"><i class="material-icons">keyboard_arrow_left</i></a>
+            <div class="conversation-info dividerdemoBasicUsage">
+                <p class="conversation-person-name"> {{ conversation.from}} </p>
+                <img ng-src="{{conversation.face?conversation.face:'images/60.jpeg'}}" class="face" alt="{{conversation.from}}">
+                <!--<p class="email__list-date"> {{ conversation.date | date: 'dd/MM/yyyy' }} </p>-->
+                <!--<p class="email__list-subject"> {{ conversation.subject}} </p>-->
+                <!--            <a href="" ng-click="reply = !reply;" class="email__reply">
+                                Reply
+                            </a>
+                            <a ng-href="/#/inbox" class="email__back">
+                                Back
+                            </a>-->
+            </div>
+        </div>
+        <!--<div class="email__content" ng-bind-html="conversation.content"></div>-->
+        <div class="email__content" ><div class="chat">
+
+
+                <div class="chat-history">
+                    <ul>
+                        <li class="booking-line message other-message">
+                                <div class="col-md-6 col-xs-12">
+                                    <b>{{booking.user_name}}</b>
+                                    <br />
+                                    <span>Event: {{booking.event_type}}</span>
+                                    <br />
+                                    <span>Date: {{booking.event_date| date: 'dd/MM/yyyy' }}</span>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input hidden="" id="location-picker-input" type="text" autocomplete="off"/>
+                                    <google-map-locator class="location-pick google-map"
+                                                        location = "{{location}}"
+                                                        radius="10"
+                                                        on-location-initialize="onLocationInitialize(location)"
+                                                        on-map-loaded="onMapLoaded(map)">
+                                    </google-map-locator>
+                                </div>
+                            </li>
+                        <li class="clearfix" ng-repeat="massage in messages">
+                            <div ng-if="massage.sender === user.userId">
+                                <div class="message-data align-right">
+                                    <span class="message-data-time" >{{massage.date}}</span> &nbsp;
+                                    <span class="message-data-name" >{{user.name}}</span> <i class="fa fa-circle me"></i>
+
+                                </div>
+                                <div class="message other-message float-right">
+                                    {{massage.text}}
+                                </div>
+                            </div>
+                            <div ng-if="massage.sender !== user.userId">
+                                <div class="message-data">
+                                    <span class="message-data-name"><i class="fa fa-circle online"></i>{{conversation.from}}</span>
+                                    <span class="message-data-time">{{massage.date}}</span>
+                                </div>
+                                <div class="message my-message">
+                                    {{massage.text}}
+                                </div>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+                </div> <!-- end chat-history -->
+
+                <div class="chat-message clearfix">
+                    <textarea ng-model="response" name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+
+                    <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-file-image-o"></i>
+
+                    <button ng-click="reply(response)">Send</button>
+
+                </div> <!-- end chat-message -->
+
+            </div> <!-- end chat --></div>
+    </div>
+</div>

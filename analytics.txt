@@ -1,7 +1,0 @@
-https://developers.google.com/analytics/devguides/reporting/embed/v1/#introduction
-https://developers.google.com/analytics/devguides/collection/analyticsjs/#what_data_does_the_tracking_snippet_capture
-https://developers.google.com/analytics/devguides/reporting/embed/v1/getting-started
-https://developers.google.com/api-client-library/javascript/start/start-js
-https://developers.google.com/analytics/devguides/config/mgmt/v3/authorization#service_accounts
-https://developers.google.com/identity/protocols/OAuth2ServiceAccount#callinganapi
-https://developers.google.com/analytics/devguides/reporting/core/v3/quickstart/service-php#helloanalyticsphp
